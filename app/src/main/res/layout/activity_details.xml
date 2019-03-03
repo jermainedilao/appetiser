@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="feed"
+                type="jermaine.domain.feed.model.Feed"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:id="@+id/imageView"
+                tools:layout_width="70dp"
+                tools:layout_height="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxWidth="70dp"
+                android:maxHeight="100dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="16dp"
+                android:adjustViewBounds="true"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:imageUrl="@{feed.artworkUrl100}"/>
+
+        <TextView
+                android:id="@+id/textViewTrackName"
+                tools:text="Star Trek II: The Wrath of Khan Two"
+                android:text="@{feed.trackName}"
+                android:textColor="#DE000000"
+                android:textSize="18sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewGenre"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="16dp"/>
+
+        <TextView
+                tools:text="Directed by Bradley Cooper"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewArtistName"
+                android:text='@{"Directed by " + feed.artistName}'
+                android:textSize="12sp"
+                android:textColor="#4D000000"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="32dp"/>
+
+        <TextView
+                tools:text="Drama"
+                android:text="@{feed.primaryGenreName}"
+                android:textSize="14sp"
+                android:textColor="#8B000000"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewGenre"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@+id/imageView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"/>
+
+        <TextView
+                tools:text="$4.99"
+                android:text='@{"$" + feed.trackPrice}'
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:id="@+id/textViewPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                />
+
+        <TextView
+                tools:text="Seasoned musician Jackson Maine (Bradley Cooper) discovers—and falls in love with—struggling artist Ally (Lady Gaga). She has just about given up on her dream to make it big as a singer… until Jack coaxes her into the spotlight. But even as Ally’s career takes off, the personal side of their relationship is breaking down, as Jack fights an ongoing battle with his own internal demons."
+                android:text="@{feed.longDescription}"
+                android:textSize="14sp"
+                android:textColor="#DE000000"
+                android:lineSpacingExtra="8sp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textViewArtistName"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
